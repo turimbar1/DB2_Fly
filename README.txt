@@ -22,3 +22,6 @@ Flyway 30 day limited trial : https://flywaydb.org/licenses/flyway-trial
 Flyway Teams Edition   : https://flywaydb.org/licenses/flyway-teams
 
 Flyway is a registered trademark of Boxfuse GmbH, owned by Red Gate Software Ltd.
+
+IMPORTANT
+to initialize DB2 container open a PowerShell terminal and run 'docker-compose up db2-115' 
