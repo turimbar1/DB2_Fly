@@ -1,0 +1,64 @@
+#
+# Copyright © Red Gate Software Ltd 2010-2021
+#
+# INTERNAL RELEASE. ALL RIGHTS RESERVED.
+#
+# Must
+# be
+# exactly
+# 13 lines
+# to match
+# community
+# edition
+# license
+# length.
+#
+
+version: "3"
+services:
+  db2-105:
+    image: "flyway/flyway-test-db:db2-express-10.5.0.5"
+    ports:
+    - "127.0.0.1:62010:50000"
+    environment:
+    - DB2INST1_PASSWORD=flywaypwd
+    - LICENSE=accept
+    volumes:
+    - ../flyway-core/src/test/resources/migration/database/db2/entrypoint.sh:/entrypoint.sh
+    - ../flyway-core/src/test/resources/migration/database/db2/createDatabase.sql:/createDatabase.sql
+    command: "db2start"
+  db2-111:
+    image: "flyway/flyway-test-db:db2-developer-11.1.2.2"
+    ports:
+    - "127.0.0.1:62011:50000"
+    privileged: true
+    environment:
+    - BLU=false
+    - DB2INST1_PASSWORD=flywaypwd
+    - DBNAME=testdb
+    - ENABLE_ORACLE_COMPATIBILITY=false
+    - LICENSE=accept
+    - REPODB=false
+    - TO_CREATE_SAMPLEDB=false
+    - UPDATEAVAIL=NO
+    volumes:
+    - ../flyway-core/src/test/resources/migration/database/db2/entrypoint-111.sh:/entrypoint.sh
+    - ../flyway-core/src/test/resources/migration/database/db2/createDatabase.sql:/createDatabase.sql
+    entrypoint:
+      - /entrypoint.sh
+  db2-115:
+    image: "ibmcom/db2:11.5.0.0a"
+    ports:
+      - "127.0.0.1:62012:50000"
+    privileged: true
+    environment:
+      - BLU=false
+      - DB2INST1_PASSWORD=flywaypwd
+      - ENABLE_ORACLE_COMPATIBILITY=false
+      - LICENSE=accept
+      - REPODB=false
+      - TO_CREATE_SAMPLEDB=false
+      - UPDATEAVAIL=NO
+    volumes:
+      - ../flyway-core/src/test/resources/migration/database/db2/createDatabase.sh:/var/custom/createDatabase.sh
+      - ../flyway-core/src/test/resources/migration/database/db2/createDatabase.sql:/createDatabase.sql
