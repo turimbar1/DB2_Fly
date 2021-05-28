@@ -1,1 +1,1 @@
-ALTER TABLE customers DROP COLLUMN title;
+ALTER TABLE customers DROP COLUMN title;
