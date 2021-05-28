@@ -1,1 +1,1 @@
-ALTER TABLE customers ADD COLUMN title VARCHAR(10)
+ALTER TABLE customers ADD COLUMN title VARCHAR(10);
