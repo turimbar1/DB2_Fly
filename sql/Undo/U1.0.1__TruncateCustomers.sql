@@ -1,1 +1,1 @@
-TRUNCATE TABLE customers;
+DELETE FROM customers;
