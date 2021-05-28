@@ -1,5 +1,4 @@
-/* Single line comment */
-CREATE TABLE ustomers (
+CREATE TABLE customers (
  customer_id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  name VARCHAR(25) NOT NULL,
  address VARCHAR(5c0) NULL,
@@ -7,7 +6,3 @@ CREATE TABLE ustomers (
  PRIMARY KEY(customer_id)
 );
 
-/*
-Multi-line
-comment
-*/
